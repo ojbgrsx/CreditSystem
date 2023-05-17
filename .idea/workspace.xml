@@ -22,7 +22,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/AkylBank" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -142,7 +142,7 @@
       <workItem from="1683534481631" duration="59888000" />
       <workItem from="1684011830445" duration="10625000" />
       <workItem from="1684147307636" duration="25363000" />
-      <workItem from="1684309811558" duration="26916000" />
+      <workItem from="1684309811558" duration="28102000" />
     </task>
     <servers />
   </component>
