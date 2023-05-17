@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/img/icon.png}" href="/../static/img/icon.png"/>
+    <link
+            href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/../static/css/style.css" th:href="@{/css/style.css}"/>
+    <title>Sign Up</title>
+    <script defer th:src="@{/js/script.js}" src="/../static/js/script.js"></script>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <a th:href="@{/client}"><img
+                th:src="@{/img/logo.png}"
+                src="/../static/img/logo.png"
+                alt="Bankist logo"
+                class="nav__logo"
+                id="logo"/></a>
+    </nav>
+
+    <div class="header__title">
+        <h1>Sign Up Form</h1>
+        <form class="modal__form" th:action="@{/client/register}" method="POST" th:object="${newClient}">
+
+            <div class="modal__form">
+                <label for="name">Name<sup class="sup">*</sup></label>
+                <input th:field="*{firstName}" type="text" id="name" name="name" placeholder="Enter first name" required>
+
+                <label for="surname">Surname<sup class="sup">*</sup></label>
+                <input th:field="*{lastName}" type="text" id="surname" name="surname" placeholder="Enter last name" required>
+
+            </div>
+
+            <div class="modal__form" th:object="${newUser}">
+                <label  for="username">Username<sup class="sup">*</sup></label>
+                <input th:field="*{username}" type="text" id="username" name="username" placeholder="Enter username" required>
+
+                <label for="password">Password<sup class="sup">*</sup></label>
+                <input th:field="*{password}" type="password" id="password" name="password" placeholder="Enter password" required>
+            </div>
+
+            <div class="modal__form" th:object="${newAddress}">
+                <label for="apartment">Apartment</label>
+                <input th:field="*{apartment}" min="1" type="text" id="apartment" name="apartment" placeholder="Apartment">
+
+                <label for="city">City<sup class="sup">*</sup></label>
+                <input th:field="*{city}" type="text" id="city" name="apartment" placeholder="City" required>
+
+                <label for="floor">Floor</label>
+                <input th:field="*{floor}" type="text" min="1" id="floor" name="floor" placeholder="Floor">
+
+                <label for="houseNumber">House number<sup class="sup">*</sup></label>
+                <input th:field="*{houseNumber}" type="text" id="houseNumber" name="houseNumber" placeholder="House number">
+
+                <label for="street">Street<sup class="sup">*</sup></label>
+                <input th:field="*{street}" type="text" id="street" name="street" placeholder="Street" required>
+            </div>
+            <button class="btn btn--show-modal" type="submit">Sign Up</button>
+        </form>
+    </div>
+</header>
+</body>
+</html>

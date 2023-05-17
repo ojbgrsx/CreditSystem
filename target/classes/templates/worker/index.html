@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Workers</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Password</th>
+                <th>Username</th>
+            </tr>
+            <tr th:each="worker :${workers}">
+                <td th:text="${worker.getId()}"/>
+                <td th:text="${worker.getFirstName()}"/>
+                <td th:text="${worker.getLastName()}"/>
+                <td th:text="${worker.getUsername()}"/>
+                <td th:text="${worker.getPassword()}"/>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

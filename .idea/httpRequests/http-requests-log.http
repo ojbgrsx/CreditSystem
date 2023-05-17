@@ -1,0 +1,19 @@
+GET http://localhost:8080/client
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Cookie: JSESSIONID=37354E75D73AA2E0363923E15203362C
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-05-16T033703.200.html
+
+###
+
+GET http://localhost:8080/auth/login
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-05-09T194831.200.html
+
+###
+
