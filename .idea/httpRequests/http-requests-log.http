@@ -1,3 +1,13 @@
+POST http://localhost:8080/client/register
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Cookie: JSESSIONID=75A4A0B9C48239B57B8C89F1636ACB62
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-05-18T011551.200.html
+
+###
+
 GET http://localhost:8080/client
 Connection: Keep-Alive
 User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)

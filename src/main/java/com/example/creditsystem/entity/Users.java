@@ -2,8 +2,7 @@ package com.example.creditsystem.entity;
 
 import com.example.creditsystem.enums.Role;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -22,13 +21,11 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-//    @Min(value = 8,message = "Username length should be at least 8 characters")
-//    @Max(value = 16,message = "Username length should be at most 16 characters")
+    @Size(min = 8,max = 16,message = "Username length should be at 8-16 characters")
     @Column(name = "username",unique = true,nullable = false)
     String username;
 
-//    @Min(value = 8,message = "Password length should be at least 8 characters")
-//    @Max(value = 16,message = "Password length should be at most 16 characters")
+//    @Size(min = 8,max = 16,message = "Password length should be at 8-16 characters")
     @Column(name = "password",nullable = false)
     String password;
 

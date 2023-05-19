@@ -203,6 +203,11 @@ h4 {
   font-weight: 500;
 }
 
+form.modal__form h5,.login{
+  font-size: 1.4rem;
+  color: red;
+}
+
 .header__img {
   width: 100%;
   grid-column: 2 / 3;

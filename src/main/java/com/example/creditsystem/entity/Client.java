@@ -1,6 +1,7 @@
 package com.example.creditsystem.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -22,10 +23,11 @@ public class Client {
     @JoinColumn(name = "client_id",nullable = false,unique = true)
     Users users;
 
-
+    @NotEmpty(message = "Name shouldn't be empty")
     @Column(name = "first_name")
     String firstName;
 
+    @NotEmpty(message = "Surname shouldn't be empty")
     @Column(name = "last_name")
     String lastName;
 

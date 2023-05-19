@@ -3,9 +3,12 @@ package com.example.creditsystem.controller;
 import com.example.creditsystem.entity.Address;
 import com.example.creditsystem.entity.Client;
 import com.example.creditsystem.entity.Users;
-import com.example.creditsystem.repository.UsersRepository;
 import com.example.creditsystem.service.ClientService;
+import com.example.creditsystem.service.UsersService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,12 +22,12 @@ public class ClientController {
 
     private final ClientService clientService;
 
-    private final UsersRepository usersRepository;
+    private final UsersService usersService;
 
     @Autowired
-    public ClientController(ClientService clientService, UsersRepository usersRepository) {
+    public ClientController(ClientService clientService, UsersService usersService1) {
         this.clientService = clientService;
-        this.usersRepository = usersRepository;
+        this.usersService = usersService1;
     }
 
     @GetMapping
@@ -53,9 +56,20 @@ public class ClientController {
     }
 
     @GetMapping("/private/cabinet")
-    public String cabinet() {
+    public String cabinet(Model model) throws Exception {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        Users users = usersService.findByUsername(username);
+        Client client = clientService.findById(users.getId());
+        model.addAttribute("clientData", Client.builder()
+                .id(client.getId())
+                .cash(client.getCash())
+                .firstName(client.getFirstName())
+                .lastName(client.getLastName())
+                .build());
+        model.addAttribute("clientAddress",client.getAddress());
         return "client/private/cabinet";
     }
+
 
 //    @GetMapping("/{id}")
 //    public String client(@PathVariable("id") Long id, Model model) throws Exception {
@@ -70,27 +84,32 @@ public class ClientController {
 //    }
 
     @GetMapping("/register")
-    public String showRegistrationForm(Model model){
-        model.addAttribute("newClient",new Client());
-        model.addAttribute("newUser",new Users());
-        model.addAttribute("newAddress",new Address());
+    public String showRegistrationForm(Model model) {
+        model.addAttribute("client", new Client());
+        model.addAttribute("users", new Users());
+        model.addAttribute("address", new Address());
         return "client/register";
     }
 
     @PostMapping("/register")
-    public String registration(@ModelAttribute("client") Client client,
-                               @ModelAttribute("user") Users users,
-                               @ModelAttribute("address") Address address,
-                               BindingResult bindingResult,
+    public String registration(@Valid @ModelAttribute("client") Client client,
+                               BindingResult clientBindingResult,
+                               @Valid @ModelAttribute("users") Users users,
+                               BindingResult usersBindingResult,
+                               @Valid @ModelAttribute("address") Address address,
+                               BindingResult addressBindingResult,
                                Model model) {
-        Optional<Users> existing = usersRepository.findByUsername(users.getUsername());
-//
-        if (existing.isPresent() && existing.get().getUsername() != null && !existing.get().getUsername().isEmpty()) {
-            bindingResult.rejectValue("username", null, "There is already an account registered with the same email");
+
+        Users existing = usersService.findByUsername(users.getUsername());
+
+        if (existing.getUsername() != null && !existing.getUsername().isEmpty()) {
+            usersBindingResult.rejectValue("username", null, "There is already an account registered with the same email");
         }
-//
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("client", new Client());
+
+        if (usersBindingResult.hasErrors() || addressBindingResult.hasErrors() || clientBindingResult.hasErrors()) {
+            model.addAttribute("client", client);
+            model.addAttribute("users", users);
+            model.addAttribute("address", address);
             return "client/register";
         }
 

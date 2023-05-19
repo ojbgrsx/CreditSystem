@@ -35,15 +35,18 @@
             <a class="nav__link" href="#section--3">Testimonials</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link nav__link--btn btn--show-modal" th:href="@{/client/login}"
+            <a class="nav__link nav__link--btn" th:href="@{/client/register}"
               >Open account</a>
           </li>
         </ul>
       </nav>
 
-      <div th:if="${param.success}">
-        <p>You have successfully signed up !</p>
-      </div>
+      <h4 th:if="${param.success}">
+        You have successfully signed up !
+      </h4>
+      <h4 th:if="${param.logout}">
+        You have been logged out !
+      </h4>
 
       <div class="header__title">
         <h1>
@@ -263,10 +266,10 @@ You can purchase our bank cards in our branches right now! The first year of ser
     <section class="section section--sign-up">
       <div class="section__title">
         <h3 class="section__header">
-What are you waiting for, click the button below and create your account right now!
+What are you waiting for, click the button below and sign in to your account right now!
         </h3>
       </div>
-      <button class="btn btn--show-modal">Open your account today!</button>
+      <button class="btn btn--show-modal">Sign in!</button>
     </section>
 
     <footer class="footer">
@@ -301,14 +304,13 @@ What are you waiting for, click the button below and create your account right n
         Open your bank account <br />
         in just <span class="highlight">5 minutes</span>
       </h2>
-      <form class="modal__form">
-        <label>First Name</label>
-        <input type="text" />
-        <label>Last Name</label>
-        <input type="text" />
-        <label>Email Address</label>
-        <input type="email" />
-        <button class="btn">Next step &rarr;</button>
+      <form class="modal__form" th:action="@{/login}" th:method="POST" role="form">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" placeholder="Enter a username">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" placeholder="Enter a password">
+        <button class="btn" type="submit">Log In &rarr;</button>
       </form>
     </div>
     <div class="overlay hidden"></div>

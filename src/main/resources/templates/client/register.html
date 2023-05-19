@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -11,7 +11,6 @@
     />
     <link rel="stylesheet" href="/../static/css/style.css" th:href="@{/css/style.css}"/>
     <title>Sign Up</title>
-    <script defer th:src="@{/js/script.js}" src="/../static/js/script.js"></script>
 </head>
 <body>
 <header class="header">
@@ -26,44 +25,59 @@
 
     <div class="header__title">
         <h1>Sign Up Form</h1>
-        <form class="modal__form" th:action="@{/client/register}" method="POST" th:object="${newClient}">
-
-            <div class="modal__form">
+    </div>
+    <form class="modal__form" th:action="@{/client/register}" th:method="POST" role="form">
+            <div th:object="${client}" class="modal__form">
                 <label for="name">Name<sup class="sup">*</sup></label>
-                <input th:field="*{firstName}" type="text" id="name" name="name" placeholder="Enter first name" required>
+                <input th:field="*{firstName}" type="text" id="name" name="name" placeholder="Enter first name"><!---->
+                <h5 th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></h5>
 
                 <label for="surname">Surname<sup class="sup">*</sup></label>
-                <input th:field="*{lastName}" type="text" id="surname" name="surname" placeholder="Enter last name" required>
-
+                <input th:field="*{lastName}" type="text" id="surname" name="surname" placeholder="Enter last name">
+<!--                <h5 th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></h5>-->
+                <!---->
             </div>
 
-            <div class="modal__form" th:object="${newUser}">
-                <label  for="username">Username<sup class="sup">*</sup></label>
-                <input th:field="*{username}" type="text" id="username" name="username" placeholder="Enter username" required>
+            <div th:object="${users}" class="modal__form">
+
+                <label for="username">Username<sup class="sup">*</sup></label>
+                <input th:field="*{username}" type="text" id="username" name="username" placeholder="Enter username">
+                <h5 th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></h5>
+                <!---->
 
                 <label for="password">Password<sup class="sup">*</sup></label>
-                <input th:field="*{password}" type="password" id="password" name="password" placeholder="Enter password" required>
+                <input th:field="*{password}" type="password" id="password" name="password"
+                       placeholder="Enter password"><!---->
+                <h5 th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></h5>
             </div>
 
-            <div class="modal__form" th:object="${newAddress}">
+            <div th:object="${address}" class="modal__form">
+
                 <label for="apartment">Apartment</label>
-                <input th:field="*{apartment}" min="1" type="text" id="apartment" name="apartment" placeholder="Apartment">
+                <input th:field="*{apartment}" type="text" id="apartment" name="apartment"
+                       placeholder="Apartment">
+                <h5 th:if="${#fields.hasErrors('apartment')}" th:errors="*{apartment}"></h5>
 
                 <label for="city">City<sup class="sup">*</sup></label>
-                <input th:field="*{city}" type="text" id="city" name="apartment" placeholder="City" required>
+                <input th:field="*{city}" type="text" id="city" name="apartment" placeholder="City"><!---->
+                <h5 th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></h5>
 
                 <label for="floor">Floor</label>
                 <input th:field="*{floor}" type="text" min="1" id="floor" name="floor" placeholder="Floor">
+                <h5 th:if="${#fields.hasErrors('floor')}" th:errors="*{floor}"></h5>
 
                 <label for="houseNumber">House number<sup class="sup">*</sup></label>
-                <input th:field="*{houseNumber}" type="text" id="houseNumber" name="houseNumber" placeholder="House number">
+                <input th:field="*{houseNumber}" type="text" id="houseNumber" name="houseNumber"
+                       placeholder="House number"><!---->
+                <h5 th:if="${#fields.hasErrors('houseNumber')}" th:errors="*{houseNumber}"></h5>
 
                 <label for="street">Street<sup class="sup">*</sup></label>
-                <input th:field="*{street}" type="text" id="street" name="street" placeholder="Street" required>
+                <input th:field="*{street}" type="text" id="street" name="street" placeholder="Street"><!---->
+                <h5 th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></h5>
+
             </div>
-            <button class="btn btn--show-modal" type="submit">Sign Up</button>
-        </form>
-    </div>
+        <button class="btn btn--show-modal" type="submit">Sign Up</button>
+    </form>
 </header>
 </body>
 </html>
