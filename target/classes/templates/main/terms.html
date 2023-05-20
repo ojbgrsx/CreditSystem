@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="/../static/img/icon.png" th:href="@{/img/icon.png}"/>
+    <link
+            href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/../static/css/style.css" th:href="@{/css/style.css}" />
+    <title>Akyl Bank</title>
+    <script defer src="/../static/js/script.js" th:src="@{/js/script.js}"></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="index.html" th:href="@{/main}"><img
+                th:src="@{/img/logo.png}"
+                src="/../static/img/logo.png"
+                alt="Bankist logo"
+                class="nav__logo"
+                id="logo"
+        /></a>
+        <ul class="nav__links">
+          <li class="nav__item">
+            <a class="nav__link" href="#section--1">History</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--2">Our Team</a>
+          <li class="nav__item">
+            <a class="nav__link nav__link--btn btn--show-modal" href="#"
+              >Open account</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header__title">
+        <h1>
+          Terms of Use
+        </h1>
+        <h4>We are here!</h4>
+        <img
+          src=""
+          class="header__img"
+        />
+      </div>
+    </header>
+
+    <section class="section section--sign-up">
+      <div class="section__title">
+        <h3 class="section__header">
+          We are very glad to see you in our website :)
+        </h3>
+      </div>
+      <h3 class="section__header">THANKS !!!</h3>
+    </section>
+
+    <footer class="footer">
+      <ul class="footer__nav">
+        <<li class="footer__item">
+        <a class="footer__link" href="index.html" th:href="@{/main}">Home</a>
+      </li>
+        <li class="footer__item">
+          <a class="footer__link" href="terms.html" th:href="@{/main/about}">About</a>
+        </li>
+        <li class="footer__item">
+          <a class="footer__link" href="contacts.html" th:href="@{/main/contacts}">Contact Us</a>
+        </li>
+      </ul>
+      <img src="/../static/img/icon.png" th:src="@{/img/icon.png}" alt="Logo" class="footer__logo" />
+      <p class="footer__copyright">
+        &copy; Copyright by
+        <a
+          class="footer__link twitter-link"
+          target="_blank"
+          href="#"
+          >SaKa</a>
+      </p>
+    </footer>
+    <div class="overlay hidden"></div>
+  </body>
+</html>

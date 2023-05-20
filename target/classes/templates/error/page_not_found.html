@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Page not found</title>
+    <link href='https://fonts.googleapis.com/css?family=Anton|Passion+One|PT+Sans+Caption' rel='stylesheet'
+          type='text/css'>
+    <link rel="stylesheet" th:href="@{/css/page_not_found.css}">
+</head>
+<body>
+<a href="https://codepen.io/uiswarup/full/yLzypyY" target="_blank">
+    <header class="top-header">
+    </header>
+
+    <!--dust particel-->
+    <div>
+        <div class="starsec"></div>
+        <div class="starthird"></div>
+        <div class="starfourth"></div>
+        <div class="starfifth"></div>
+    </div>
+    <!--Dust particle end--->
+
+
+    <div class="lamp__wrap">
+        <div class="lamp">
+            <div class="cable"></div>
+            <div class="cover"></div>
+            <div class="in-cover">
+                <div class="bulb"></div>
+            </div>
+            <div class="light"></div>
+        </div>
+    </div>
+    <!-- END Lamp -->
+    <section class="error">
+        <!-- Content -->
+        <div class="error__content">
+            <div class="error__message message">
+                <h1 class="message__title">Page Not Found</h1>
+                <h1 class="message__title">404</h1>
+                <p class="message__text">We're sorry, the page you were looking for isn't found here.</p>
+            </div>
+            <div class="error__nav e-nav">
+                <a th:href="@{/main}" class="e-nav__link"></a>
+            </div>
+        </div>
+        <!-- END Content -->
+
+    </section>
+
+</a>
+</body>
+</html>
