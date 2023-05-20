@@ -35,16 +35,18 @@ public class ClientService {
     }
 
     @Transactional
+    public void updateClient(Client client){
+        clientRepository.saveAndFlush(client);
+    }
+
+    @Transactional
     public void deleteClient(Client client){
         clientRepository.delete(client);
     }
 
-    public Client findById(Long id) throws Exception {
+    public Client findById(Long id){
         Optional<Client> client = clientRepository.findById(id);
-        if (client.isEmpty()){
-            throw new Exception("User not found");
-        }
-        return client.get();
+        return client.orElseGet(Client::new);
     }
 
     public List<Client> findAll() {

@@ -22,4 +22,10 @@ public class UsersService {
         Optional<Users> user = usersRepository.findByUsername(username);
         return user.orElse(null);
     }
+
+    @Transactional
+    public Users findById(Long id){
+        Optional<Users> user = usersRepository.findById(id);
+        return user.orElse(null);
+    }
 }

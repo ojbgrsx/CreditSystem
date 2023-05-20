@@ -29,27 +29,16 @@ public class ClientController {
 
 
     @GetMapping("/cabinet")
-    public String cabinet(Model model) throws Exception {
+    public String cabinet(Model model) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         Users users = usersService.findByUsername(username);
         Client client = clientService.findById(users.getId());
-        model.addAttribute("clientAddress",client.getAddress());
+        model.addAttribute("clientAddress", client.getAddress());
         client.setAddress(null);
         model.addAttribute("clientData", client);
         return "client/cabinet";
     }
 
-//    @GetMapping("/{id}")
-//    public String client(@PathVariable("id") Long id, Model model) throws Exception {
-//        model.addAttribute("client", clientService.findById(id));
-//        return "all/client_page";
-//    }
-
-//    @DeleteMapping("/{id}")
-//    public String deleteClient(@PathVariable("id") Long id) throws Exception {
-//        clientService.deleteClient(clientService.findById(id));
-//        return "redirect:/auth";
-//    }
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
@@ -84,6 +73,42 @@ public class ClientController {
         clientService.saveClient(client, users, address);
         return "redirect:/all?success";
 
+    }
+
+    @GetMapping("/profile/{id}")
+    public String profilePage(Model model, @PathVariable("id") Long id) {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        Users user = usersService.findByUsername(username);
+        model.addAttribute("user", user);
+        model.addAttribute("client", clientService.findById(id));
+        model.addAttribute("address", clientService.findById(id).getAddress());
+        return "client/changeProfile";
+    }
+
+    @PatchMapping("/profile/{id}")
+    public String profileChange(@PathVariable("id") Long id, @Valid @ModelAttribute("client") Client client, BindingResult clientResult,
+                                @Valid @ModelAttribute("address") Address address, BindingResult addressResult,
+                                Model model) {
+        if (clientResult.hasErrors() || addressResult.hasErrors()) {
+            model.addAttribute("client", client);
+            model.addAttribute("address", address);
+            return "redirect:/client/profile";
+        }
+        clientService.updateClient(Client.builder()
+                .id(id)
+                .cash(client.getCash())
+                .firstName(client.getFirstName())
+                .lastName(client.getLastName())
+                .address(address)
+                .users(usersService.findById(id))
+                .build());
+        return "redirect:/client/cabinet";
+
+    }
+
+    @GetMapping("/formsMenu")
+    public String formsMenu(){
+        return "client/formsMenu";
     }
 
 

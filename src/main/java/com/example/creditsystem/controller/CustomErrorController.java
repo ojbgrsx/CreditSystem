@@ -14,8 +14,10 @@ public class CustomErrorController implements ErrorController {
         Integer statusCode = (Integer) request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
         if(statusCode == 404){
             return "error/page_not_found";
-        }else{
+        }else if (statusCode == 403){
             return "error/access_denied";
+        }else {
+            return "error/server_error";
         }
     }
 }

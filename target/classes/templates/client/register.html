@@ -54,7 +54,7 @@
             <div th:object="${address}" class="modal__form">
 
                 <label for="apartment">Apartment</label>
-                <input th:field="*{apartment}" type="text" id="apartment" name="apartment"
+                <input th:field="*{apartment}" type="number" min="1" id="apartment" name="apartment"
                        placeholder="Apartment">
                 <h5 th:if="${#fields.hasErrors('apartment')}" th:errors="*{apartment}"></h5>
 
@@ -63,7 +63,7 @@
                 <h5 th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></h5>
 
                 <label for="floor">Floor</label>
-                <input th:field="*{floor}" type="text" min="1" id="floor" name="floor" placeholder="Floor">
+                <input th:field="*{floor}" type="number" min="1" id="floor" name="floor" placeholder="Floor">
                 <h5 th:if="${#fields.hasErrors('floor')}" th:errors="*{floor}"></h5>
 
                 <label for="houseNumber">House number<sup class="sup">*</sup></label>

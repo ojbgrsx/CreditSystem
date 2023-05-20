@@ -12,61 +12,67 @@
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <title>Akyl Bank</title>
     <script defer th:src="@{/js/script.js}"></script>
+    <style>
+        span {
+            color: #4CAF50;
+        }
+    </style>
 </head>
 <body>
-<header class="header">
-    <nav class="nav">
-        <img
-            th:src="@{/img/logo.png}"
-            alt="Bankist logo"
-            class="nav__logo"
-            id="logo">
-        <ul class="nav__links">
-            <li class="nav__item">
-                <address class="testimonial__author">
-                    <a th:href="@{/client/changeProfile}"><img th:src="@{/img/godfather.jpg}" alt="" class="testimonial__photo"/></a>
-                </address>
-            </li>
-            <li style="margin-left: 0" class="nav__item">
-                <form th:action="@{/logout}" th:method="POST">
-                    <button class="btn">LOG OUT</button>
-                </form>
-            </li>
+<main>
+    <header class="header" style="height: auto">
+        <nav class="nav">
+            <a th:href="@{/main/back}">
+                <img
+                        th:src="@{/img/logo.png}"
+                        alt="Bankist logo"
+                        class="nav__logo"
+                        id="logo">
+            </a>
+            <ul class="nav__links">
+                <li class="nav__item">
+                    <a class="nav__link" style="margin: 0" th:href="@{/client/formsMenu}">Credit Menu</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" style="margin: 0" th:href="@{/client/formsMenu}">Form Menu</a>
+                </li>
+                <li class="nav__item" style="margin: 0">
+                    <address class="testimonial__author">
+                        <a th:href="@{/client/profile/{id}(id=${clientData.getId()})}"><img
+                                th:src="@{/img/godfather.jpg}" alt="" class="testimonial__photo"/></a>
+                    </address>
+                </li>
+                <li style="margin-left: 0" class="nav__item">
+                    <form th:action="@{/logout}" th:method="POST">
+                        <button class="btn">LOG OUT</button>
+                    </form>
+                </li>
 
-        </ul>
-    </nav>
+            </ul>
+        </nav>
 
-    <title class="header__title">Личный кабинет</title>
+        <div style="grid-template-columns: none" class="header__title"><h1>Personal Area</h1></div>
 
-    <section class="section__description">
-        <h2 th:text="${clientData.getFirstName()}"/>
-        <h2 th:text="${clientData.getLastName()}"/>
+        <section class="section__description">
+            <h2 th:text="${clientData.getFirstName()}"/>
+            <h2 th:text="${clientData.getLastName()}"/>
+        </section>
+        <section class="section custom_section">
+            <h2>Apartment: <span th:text="${clientAddress.getApartment()}"></span></h2>
+            <h2>City: <span th:text="${clientAddress.getCity()}"></span></h2>
+            <h2>Floor: <span th:text="${clientAddress.getFloor()}"></span></h2>
+            <h2>House number: <span th:text="${clientAddress.getHouseNumber()}"></span></h2>
+            <h2>Street: <span th:text="${clientAddress.getStreet()}"></span></h2>
+        </section>
+    </header>
+
+    <section class="section custom_section">
+        <h1>Account balance</h1>
+        <h2 style="display: inline">Current balance: <h2 style="display: inline" th:text="${clientData.getCash()}"/></h2>
     </section>
-    <section class="section">
-        <h2 th:text="${clientAddress.getApartment()}"/>
-        <h2 th:text="${clientAddress.getCity()}"/>
-        <h2 th:text="${clientAddress.getFloor()}"/>
-        <h2 th:text="${clientAddress.getHouseNumber()}"/>
-        <h2 th:text="${clientAddress.getStreet()}"/>
-    </section>
-</header>
 
-<section class="section">
-    <h2>Баланс счета</h2>
-    <p style="display: inline">Текущий баланс: <h5 th:text="${clientData.getCash()}"></h5>
-
-</section>
-
-<section class="section">
-    <h2>Последние операции</h2>
-    <ul>
-        <li>Перевод на сумму $500 на счет получателя</li>
-        <li>Снятие наличных со счета на сумму $100</li>
-        <!-- Другие операции -->
-    </ul>
-</section>
 </main>
-</div>
+
 
 <footer class="footer">
     <ul class="footer__nav">

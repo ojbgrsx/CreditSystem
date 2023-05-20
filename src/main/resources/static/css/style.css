@@ -40,6 +40,9 @@ body {
 
   transition: transform 1s, opacity 1s;
 }
+.custom_section{
+  padding: 3rem 3rem;
+}
 
 .section--hidden {
   opacity: 0;

@@ -19,15 +19,15 @@ public class AdminController {
         this.clientService = clientService;
         this.workerService = workerService;
     }
+    @GetMapping()
+    public String adminPage(){
+        return "admin/index";
+    }
 
     @GetMapping("/login")
     public String index(){
         return "main/login";
     }
 
-    @GetMapping()
-    public String adminPage(){
-        return "admin/index";
-    }
 
 }
