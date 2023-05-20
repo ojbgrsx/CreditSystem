@@ -8,13 +8,10 @@ import com.example.creditsystem.service.UsersService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/client")
@@ -30,51 +27,22 @@ public class ClientController {
         this.usersService = usersService1;
     }
 
-    @GetMapping
-    public String hello() {
-        return "client/index";
-    }
 
-    @GetMapping("/login")
-    public String loginPage() {
-        return "client/login";
-    }
-
-    @GetMapping("/about")
-    public String aboutPage() {
-        return "client/about";
-    }
-
-    @GetMapping("/terms")
-    public String termsPage() {
-        return "client/terms";
-    }
-
-    @GetMapping("/contacts")
-    public String contactsPage() {
-        return "client/contacts";
-    }
-
-    @GetMapping("/private/cabinet")
+    @GetMapping("/cabinet")
     public String cabinet(Model model) throws Exception {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         Users users = usersService.findByUsername(username);
         Client client = clientService.findById(users.getId());
-        model.addAttribute("clientData", Client.builder()
-                .id(client.getId())
-                .cash(client.getCash())
-                .firstName(client.getFirstName())
-                .lastName(client.getLastName())
-                .build());
         model.addAttribute("clientAddress",client.getAddress());
-        return "client/private/cabinet";
+        client.setAddress(null);
+        model.addAttribute("clientData", client);
+        return "client/cabinet";
     }
-
 
 //    @GetMapping("/{id}")
 //    public String client(@PathVariable("id") Long id, Model model) throws Exception {
 //        model.addAttribute("client", clientService.findById(id));
-//        return "client/client_page";
+//        return "all/client_page";
 //    }
 
 //    @DeleteMapping("/{id}")
@@ -114,8 +82,9 @@ public class ClientController {
         }
 
         clientService.saveClient(client, users, address);
-        return "redirect:/client?success";
+        return "redirect:/all?success";
 
     }
+
 
 }

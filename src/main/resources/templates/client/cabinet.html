@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/img/icon.png}"/>
+    <link
+            href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <title>Akyl Bank</title>
+    <script defer th:src="@{/js/script.js}"></script>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <img
+            th:src="@{/img/logo.png}"
+            alt="Bankist logo"
+            class="nav__logo"
+            id="logo">
+        <ul class="nav__links">
+            <li class="nav__item">
+                <address class="testimonial__author">
+                    <a th:href="@{/client/changeProfile}"><img th:src="@{/img/godfather.jpg}" alt="" class="testimonial__photo"/></a>
+                </address>
+            </li>
+            <li style="margin-left: 0" class="nav__item">
+                <form th:action="@{/logout}" th:method="POST">
+                    <button class="btn">LOG OUT</button>
+                </form>
+            </li>
+
+        </ul>
+    </nav>
+
+    <title class="header__title">Личный кабинет</title>
+
+    <section class="section__description">
+        <h2 th:text="${clientData.getFirstName()}"/>
+        <h2 th:text="${clientData.getLastName()}"/>
+    </section>
+    <section class="section">
+        <h2 th:text="${clientAddress.getApartment()}"/>
+        <h2 th:text="${clientAddress.getCity()}"/>
+        <h2 th:text="${clientAddress.getFloor()}"/>
+        <h2 th:text="${clientAddress.getHouseNumber()}"/>
+        <h2 th:text="${clientAddress.getStreet()}"/>
+    </section>
+</header>
+
+<section class="section">
+    <h2>Баланс счета</h2>
+    <p style="display: inline">Текущий баланс: <h5 th:text="${clientData.getCash()}"></h5>
+
+</section>
+
+<section class="section">
+    <h2>Последние операции</h2>
+    <ul>
+        <li>Перевод на сумму $500 на счет получателя</li>
+        <li>Снятие наличных со счета на сумму $100</li>
+        <!-- Другие операции -->
+    </ul>
+</section>
+</main>
+</div>
+
+<footer class="footer">
+    <ul class="footer__nav">
+        <li class="footer__item">
+            <a class="footer__link" href="about.html">About</a>
+        </li>
+        <li class="footer__item">
+            <a class="footer__link" href="terms.html">Terms of Use</a>
+        </li>
+        <li class="footer__item">
+            <a class="footer__link" href="contacts.html">Contact Us</a>
+        </li>
+    </ul>
+    <img th:src="@{/img/icon.png}" alt="Logo" class="footer__logo"/>
+    <p class="footer__copyright">
+        &copy; Copyright by
+        <a
+                class="footer__link twitter-link"
+                target="_blank"
+                href="#"
+        >SaKa</a>
+    </p>
+</footer>
+
+</body>
+</html>

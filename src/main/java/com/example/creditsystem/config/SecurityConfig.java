@@ -33,22 +33,21 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/main/**","/client/register").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/client/private/**").hasAnyRole("CLIENT", "ADMIN")
+                        .requestMatchers("/client/**").hasAnyRole("CLIENT", "ADMIN")
                         .requestMatchers("/worker/**").hasAnyRole("WORKER", "ADMIN")
-                        .requestMatchers("/auth/**", "/admin/login", "/client/**").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
-                        .loginPage("/client")
+                        .loginPage("/main/login")
                         .loginProcessingUrl("/login")
                         .successHandler(authenticationSuccessHandler())
-                        .failureUrl("/client?error"))
+                        .failureUrl("/main?error"))
                 .logout(logout -> logout
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/client?logout")
+                        .logoutSuccessUrl("/main?logout")
                         .deleteCookies()
-                        .clearAuthentication(true)
-                );
+                        .clearAuthentication(true));
         http
                 .userDetailsService(usersDetailsService);
         return http.build();
@@ -63,11 +62,11 @@ public class SecurityConfig {
             if (list.get(0).equals(new SimpleGrantedAuthority(Role.ROLE_ADMIN.name()))) {
                 response.sendRedirect("/admin");
             } else if (list.get(0).equals(new SimpleGrantedAuthority(Role.ROLE_CLIENT.name()))) {
-                response.sendRedirect("/client/private/cabinet");
+                response.sendRedirect("/client/cabinet");
             } else if (list.get(0).equals(new SimpleGrantedAuthority(Role.ROLE_WORKER.name()))) {
-                response.sendRedirect("/worker");
+                response.sendRedirect("/worker/cabinet");
             } else {
-                response.sendRedirect("/client");
+                response.sendRedirect("/main");
             }
         };
     }

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminController {
 
     private final ClientService clientService;
-
     private final WorkerService workerService;
 
     @Autowired
@@ -23,7 +22,7 @@ public class AdminController {
 
     @GetMapping("/login")
     public String index(){
-        return "admin/login";
+        return "main/login";
     }
 
     @GetMapping()

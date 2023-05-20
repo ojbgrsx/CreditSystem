@@ -5,10 +5,31 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/main")
 public class MainController {
-    @GetMapping
-    public String mainPage(){
-        return "client/index";
+    @GetMapping()
+    public String hello() {
+        return "main/index";
     }
+
+    @GetMapping("/login")
+    public String loginPage() {
+        return "main/login";
+    }
+
+    @GetMapping("/about")
+    public String aboutPage() {
+        return "main/about";
+    }
+
+    @GetMapping("/terms")
+    public String termsPage() {
+        return "main/terms";
+    }
+
+    @GetMapping("/contacts")
+    public String contactsPage() {
+        return "main/contacts";
+    }
+
 }
