@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Server error</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/server_error.css}" href="/../static/css/server_error.css">
+</head>
+<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Condensed:100,200,300,400" rel="stylesheet">
+<body class="loading">
+<h1>500</h1>
+<h2>Unexpected Error <b>:(</b></h2>
+<h5><a th:href="@{/main/back}">BACK</a></h5>
+<div class="gears">
+    <div class="gear one">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="gear two">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="gear three">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script th:src="@{/js/server_error.js}" type="text/javascript" src="/../static/js/server_error.js"></script>
+</body>
+</html>

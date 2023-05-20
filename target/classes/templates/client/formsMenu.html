@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" type="image/png" href="img/icon.png"/>
+    <link
+            href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <title>Akyl Bank</title>
+    <script defer th:src="@{/js/script.js}"></script>
+    <style>
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <a href="../main/index.html"><img
+                src="/../static/img/logo.png"
+                th:src="@{/img/logo.png}"
+                alt="Bankist logo"
+                class="nav__logo"
+                id="logo"
+        /></a>
+        <ul class="nav__links">
+            <li class="nav__item">
+                <a class="nav__link" href="../main/terms.html">Terms of Use</a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" href="../main/contacts.html">Contacts</a>
+            <li class="nav__item">
+                <a class="nav__link nav__link--btn " href="../main/index.html"
+                >Home</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="header__title">
+        <h1>
+            <span class="highlight"><a th:href="@{/client/fillOutForm}">Fill Out the Form</a></span>
+        </h1>
+        <h1>
+            <span class="highlight header__img"><a th:href="@{/client/formsList}">See Forms List</a></span>
+        </h1>
+    </div>
+</header>
+</body>
+</html>
