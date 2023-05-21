@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
+
 
 @Entity
 @Table(name = "credit_type")
@@ -20,10 +22,9 @@ public class CreditType {
     @Column(name = "name")
     String name;
 
-    @Column(name = "description")
-    String description;
-
     @Column(name = "interest_rate")
     int interestRate;
 
+    @OneToMany(mappedBy = "creditType")
+    List<Form> form;
 }

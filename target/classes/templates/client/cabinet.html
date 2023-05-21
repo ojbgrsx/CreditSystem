@@ -31,10 +31,10 @@
             </a>
             <ul class="nav__links">
                 <li class="nav__item">
-                    <a class="nav__link" style="margin: 0" th:href="@{/client/formsMenu}">Credit Menu</a>
+                    <a class="nav__link" style="margin: 0" th:href="@{/client/creditMenu{id}(id=${clientData.getId()})}">Credit Menu</a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link" style="margin: 0" th:href="@{/client/formsMenu}">Form Menu</a>
+                    <a class="nav__link" style="margin: 0" th:href="@{/client/formsMenu/{id}(id=${clientData.getId()})}">Form Menu</a>
                 </li>
                 <li class="nav__item" style="margin: 0">
                     <address class="testimonial__author">
@@ -73,29 +73,6 @@
 
 </main>
 
-
-<footer class="footer">
-    <ul class="footer__nav">
-        <li class="footer__item">
-            <a class="footer__link" href="about.html">About</a>
-        </li>
-        <li class="footer__item">
-            <a class="footer__link" href="terms.html">Terms of Use</a>
-        </li>
-        <li class="footer__item">
-            <a class="footer__link" href="contacts.html">Contact Us</a>
-        </li>
-    </ul>
-    <img th:src="@{/img/icon.png}" alt="Logo" class="footer__logo"/>
-    <p class="footer__copyright">
-        &copy; Copyright by
-        <a
-                class="footer__link twitter-link"
-                target="_blank"
-                href="#"
-        >SaKa</a>
-    </p>
-</footer>
 
 </body>
 </html>

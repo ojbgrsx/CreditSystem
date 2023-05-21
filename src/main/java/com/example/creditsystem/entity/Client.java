@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
+
 
 @Entity
 @Table(name = "client")
@@ -38,5 +40,7 @@ public class Client {
     @Column(name = "cash")
     int cash;
 
+    @OneToMany(mappedBy = "client")
+    List<Form> formList;
 
 }

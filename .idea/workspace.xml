@@ -4,41 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4833473f-2ff4-4f92-b9fb-0760da604bb9" name="Changes" comment="Error pages + Create Main Controller">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/server_error.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/server_error.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/error/server_error.html" afterDir="false" />
+    <list default="true" id="4833473f-2ff4-4f92-b9fb-0760da604bb9" name="Changes" comment="Server error + Some style changes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/enums/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/AddressService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/FormService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/client/form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/client/formsList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/103b313c-ad98-4439-94e6-4764def74b98.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/103b313c-ad98-4439-94e6-4764def74b98.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/103b313c-ad98-4439-94e6-4764def74b98/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/103b313c-ad98-4439-94e6-4764def74b98/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/CustomErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/CustomErrorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/WorkerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/WorkerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/entity/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/entity/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/entity/CreditType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/entity/CreditType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/entity/Form.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/entity/Form.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/repository/AddressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/repository/AddressRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/repository/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/repository/ClientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/repository/FormRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/repository/FormRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/UsersService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/cabinet.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/cabinet.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/changeProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/changeProfile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/formsMenu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/error/access_denied.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/error/access_denied.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/error/page_not_found.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/error/page_not_found.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/formsMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/formsMenu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/AdminController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/ClientController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/CustomErrorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/CustomErrorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/WorkerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/WorkerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/CreditType$CreditTypeBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/CreditType$CreditTypeBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/CreditType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/CreditType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Form$FormBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Form$FormBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Form.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Form.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/repository/AddressRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/repository/AddressRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/repository/ClientRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/repository/ClientRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/repository/FormRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/repository/FormRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/service/ClientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/service/ClientService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/service/UsersService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/service/UsersService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/auth/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/auth/users.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/client/cabinet.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/client/cabinet.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/client/changeProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/client/changeProfile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/client/form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/client/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/client/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/error/access_denied.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/error/access_denied.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/error/page_not_found.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/error/page_not_found.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/client/formsMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/client/formsMenu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,13 +51,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Record" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
         <option value="Class" />
         <option value="HTML File" />
-        <option value="CSS File" />
-        <option value="JavaScript File" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -143,10 +145,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources/static" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.CreditSystemApplication">
-    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="CreditSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="jbr-17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -156,11 +155,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="HTTP Request.generated-requests | #1" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -181,7 +175,7 @@
       <workItem from="1684348437475" duration="32769000" />
       <workItem from="1684432512166" duration="7027000" />
       <workItem from="1684503280947" duration="18825000" />
-      <workItem from="1684526353239" duration="36655000" />
+      <workItem from="1684526353239" duration="69627000" />
     </task>
     <task id="LOCAL-00001" summary="Sign in + Validation(Client,Address,Users classes) + AuthenticationSuccessHandler + UserService">
       <created>1684519603985</created>
@@ -204,7 +198,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684548024365</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Cabinet + Profile changing + Server error">
+      <created>1684596913072</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1684596913072</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Server error + Some style changes">
+      <created>1684596976376</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684596976376</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +234,8 @@
     <MESSAGE value="Sign in + Validation(Client,Address,Users classes) + AuthenticationSuccessHandler + UserService" />
     <MESSAGE value="Error pages + Created Main Controller" />
     <MESSAGE value="Error pages + Create Main Controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Error pages + Create Main Controller" />
+    <MESSAGE value="Cabinet + Profile changing + Server error" />
+    <MESSAGE value="Server error + Some style changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Server error + Some style changes" />
   </component>
 </project>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" type="image/png" th:href="@{/img/icon.png}"/>
+    <link
+            href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <title>Akyl Bank</title>
+    <script defer th:src="@{/js/script.js}"></script>
+</head>
+<body>
+<header class="header">
+    <
+    <nav class="nav">
+        <a th:href="@{/client/cabinet}"><img
+                src="/../static/img/logo.png"
+                th:src="@{/img/logo.png}"
+                alt="Bankist logo"
+                class="nav__logo"
+                id="logo"
+        /></a>
+        <ul class="nav__links">
+            <li class="nav__item" style="margin: 0">
+                <address class="testimonial__author">
+                    <a th:href="@{/client/profile/{id}(id=${client.getId()})}"><img
+                            th:src="@{/img/godfather.jpg}" alt="" class="testimonial__photo"/></a>
+                </address>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="modal__header">
+        <h1>Application form</h1>
+        <form class="modal-form" th:action="@{/client/form/{id}(id=${client.getId()})}" th:method="POST"
+              th:object="${form}" role="form">
+
+            <div class="modal__form">
+                <label for="birth_date">Enter your birthdate</label>
+                <input th:field="*{birthDate}" type="date" id="birth_date" name="birth_date" required>
+            </div>
+
+            <div class="modal__form">
+                <label for="citizenship">Enter your citizenship</label>
+                <select th:field="*{citizenship}" id="citizenship" name="citizenship" required>
+                    <option th:value="Kyrgyz">Kyrgyz</option>
+                    <option th:value="Russian">Russian</option>
+                    <option th:value="German">German</option>
+                    <option th:value="Kazakh">Kazakh</option>
+                </select>
+            </div>
+
+            <div class="modal__form">
+                <label for="current_loans">Enter your current loans amount</label>
+                <input th:field="*{currentLoans}" type="number" min="0" id="current_loans" name="current_loans"
+                       required>
+            </div>
+
+            <div class="modal__form">
+                <label for="family_status">Enter your family status</label>
+                <select th:field="*{familyStatus}" id="family_status" name="family_status" required>
+                    <option th:value="Single">Single</option>
+                    <option th:value="Married">Married</option>
+                    <option th:value="Divorced">Divorced</option>
+                    <option th:value="Separated">Separated</option>
+                </select>
+            </div>
+
+            <div class="modal__form">
+                <label for="personal_property">Enter your personal property</label>
+                <input th:field="*{personalProperty}" type="text" id="personal_property" name="personal_property">
+            </div>
+
+            <div class="modal__form">
+                <label for="pass_number">Enter your passport number</label>
+                <input th:field="*{passportNumber}" type="text" id="pass_number" name="pass_number" required>
+            </div>
+
+            <div class="modal__form">
+                <label for="phone_number">Enter your phone number</label>
+                <input th:field="*{phoneNumber}" type="text" id="phone_number" name="phone_number" required>
+            </div>
+
+            <div class="modal__form">
+                <label for="work_place">Enter work place</label>
+                <input th:field="*{workPlace}" type="text" id="work_place" name="work_place" required>
+            </div>
+
+            <div class="modal__form">
+                <label for="monthly_salary">Enter your monthly salary</label>
+                <input th:field="*{monthlySalary}" type="number" th:default="1" id="monthly_salary" name="monthly_salary" required>
+            </div>
+
+            <div class="modal__form">
+                <label for="loan_type">Enter your loan type</label>
+                <select th:field="*{creditType}" id="loan_type" name="family_status" required>
+                    <option th:each="type : ${creditType}" th:value="${type.getId()}" th:text="${type.getName() + ' (' +type.getInterestRate()+'% per year)'}"></option>
+                </select>
+            </div>
+
+            <div class="modal__form">
+                <label for="amount">Enter your receiving cash</label>
+                <input th:field="*{receiveCash}" type="number" id="amount" name="amount" required>
+            </div>
+            <div class="modal__form">
+                <label for="duration">Enter your requested date (amount month)</label>
+                <input th:field="*{requestedPeriod}" type="number" min="1" id="duration" value="1" name="duration" required>
+            </div>
+            <div class="modal__form">
+                <button style="margin-bottom: 35px;margin-top: 15px" class="btn btn--show-modal" type="submit">Send
+                </button>
+            </div>
+        </form>
+    </div>
+</header>
+
+
+</body>
+</html>

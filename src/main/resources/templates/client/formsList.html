@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Akyl Bank</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <script defer th:src="@{/js/script.js}"></script>
+    <style>
+
+
+        .content-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            min-width: 400px;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            overflow-x: scroll;
+        }
+
+        .content-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .content-table th,
+        .content-table td {
+            padding: 12px 15px;
+            font-weight:bold;
+            font-size: 1.2em;
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .content-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        .content-table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
+        }
+        .first {
+            color: #009879;
+        }
+    </style>
+</head>
+<body>
+<header class="header" style="height: auto">
+    <nav class="nav">
+        <a th:href="@{/main/back}">
+            <img
+                    th:src="@{/img/logo.png}"
+                    alt="Bankist logo"
+                    class="nav__logo"
+                    id="logo">
+        </a>
+        <ul class="nav__links">
+            <li class="nav__item">
+                <a class="nav__link" style="margin: 0" th:href="@{/client/creditMenu{id}(id=${client.getId()})}">Credit
+                    Menu</a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" style="margin: 0" th:href="@{/client/formsMenu/{id}(id=${client.getId()})}">Form
+                    Menu</a>
+            </li>
+            <li class="nav__item" style="margin: 0">
+                <address class="testimonial__author">
+                    <a th:href="@{/client/profile/{id}(id=${client.getId()})}"><img
+                            th:src="@{/img/godfather.jpg}" alt="" class="testimonial__photo"/></a>
+                </address>
+            </li>
+            <li style="margin-left: 0" class="nav__item">
+                <form th:action="@{/logout}" th:method="POST">
+                    <button class="btn">LOG OUT</button>
+                </form>
+            </li>
+
+        </ul>
+    </nav>
+
+    <table class="content-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Birth date</th>
+            <th>Citizenship</th>
+            <th>Loans</th>
+            <th>Family status</th>
+            <th>State</th>
+            <th>Fill out date</th>
+            <th>Salary</th>
+            <th>Passport</th>
+            <th>Personal property</th>
+            <th>Phone number</th>
+            <th>Receive cash</th>
+            <th>Requested period</th>
+            <th>Work place</th>
+            <th>Credit type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each=" form : ${formsList}">
+            <td class="first" th:text="${form.getId()}"/>
+            <td th:text="${form.getBirthDate()}"/>
+            <td th:text="${form.getCitizenship()}"/>
+            <td th:text="${form.getCurrentLoans()}"/>
+            <td th:text="${form.getFamilyStatus()}"/>
+            <td th:text="${form.getFormState()}"/>
+            <td th:text="${form.getInitialDate()}"/>
+            <td th:text="${form.getMonthlySalary()}"/>
+            <td th:text="${form.getPassportNumber()}"/>
+            <td th:text="${form.getPersonalProperty()}"/>
+            <td th:text="${form.getPhoneNumber()}"/>
+            <td th:text="${form.getReceiveCash()}"/>
+            <td th:text="${form.getRequestedPeriod()}"/>
+            <td th:text="${form.getWorkPlace()}"/>
+            <td th:text="${form.getCreditType().getName()+' ('+form.getCreditType().getInterestRate()+'% per year)'}"/>
+        </tr>
+        </tbody>
+    </table>
+</header>
+</body>
+</html>

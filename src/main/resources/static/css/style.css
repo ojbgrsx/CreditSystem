@@ -41,7 +41,7 @@ body {
   transition: transform 1s, opacity 1s;
 }
 .custom_section{
-  padding: 3rem 3rem;
+  padding: 5rem 3rem;
 }
 
 .section--hidden {
@@ -646,6 +646,13 @@ form.modal__form h5,.login{
   border-radius: 0.5rem;
 }
 
+.modal__form select {
+  font-size: 1.7rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  background-color: white;
+}
 .modal__form button {
   grid-column: 1 / span 2;
   justify-self: center;

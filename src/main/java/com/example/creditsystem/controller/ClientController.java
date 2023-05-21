@@ -1,9 +1,10 @@
 package com.example.creditsystem.controller;
 
-import com.example.creditsystem.entity.Address;
-import com.example.creditsystem.entity.Client;
-import com.example.creditsystem.entity.Users;
+import com.example.creditsystem.entity.*;
+import com.example.creditsystem.repository.CreditTypeRepository;
+import com.example.creditsystem.service.AddressService;
 import com.example.creditsystem.service.ClientService;
+import com.example.creditsystem.service.FormService;
 import com.example.creditsystem.service.UsersService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +22,19 @@ public class ClientController {
 
     private final UsersService usersService;
 
+    private final FormService formService;
+
+    private final AddressService addressService;
+
+    private final CreditTypeRepository creditTypeRepository;
+
     @Autowired
-    public ClientController(ClientService clientService, UsersService usersService1) {
+    public ClientController(ClientService clientService, UsersService usersService1, FormService formService, AddressService addressService, CreditTypeRepository creditTypeRepository) {
         this.clientService = clientService;
         this.usersService = usersService1;
+        this.formService = formService;
+        this.addressService = addressService;
+        this.creditTypeRepository = creditTypeRepository;
     }
 
 
@@ -32,7 +42,7 @@ public class ClientController {
     public String cabinet(Model model) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         Users users = usersService.findByUsername(username);
-        Client client = clientService.findById(users.getId());
+        Client client = clientService.findByUsersId(users.getId());
         model.addAttribute("clientAddress", client.getAddress());
         client.setAddress(null);
         model.addAttribute("clientData", client);
@@ -59,8 +69,10 @@ public class ClientController {
 
         Users existing = usersService.findByUsername(users.getUsername());
 
-        if (existing.getUsername() != null && !existing.getUsername().isEmpty()) {
-            usersBindingResult.rejectValue("username", null, "There is already an account registered with the same email");
+        System.out.println();
+
+        if (existing != null) {
+            usersBindingResult.rejectValue("username", null, "There is already an account registered with the same username");
         }
 
         if (usersBindingResult.hasErrors() || addressBindingResult.hasErrors() || clientBindingResult.hasErrors()) {
@@ -71,7 +83,7 @@ public class ClientController {
         }
 
         clientService.saveClient(client, users, address);
-        return "redirect:/all?success";
+        return "redirect:/main?success";
 
     }
 
@@ -100,15 +112,43 @@ public class ClientController {
                 .firstName(client.getFirstName())
                 .lastName(client.getLastName())
                 .address(address)
-                .users(usersService.findById(id))
+                .users(usersService.findById(clientService.findById(id).getUsers().getId()))
                 .build());
         return "redirect:/client/cabinet";
 
     }
 
-    @GetMapping("/formsMenu")
-    public String formsMenu(){
+    @GetMapping("/formsMenu/{id}")
+    public String formsMenu(Model model,@PathVariable("id") Long id){
+        model.addAttribute("client",clientService.findById(id));
         return "client/formsMenu";
+    }
+
+    @GetMapping("/formsList/{id}")
+    public String formsList(Model model,@PathVariable("id") Long id){
+        Client client = clientService.findById(id);
+        if (!client.getFormList().isEmpty()){
+            model.addAttribute("client",client);
+            model.addAttribute("formsList",client.getFormList());
+            return "client/formsList";
+        }
+        return String.format("redirect:/client/formsMenu/%d?notExist",id);
+    }
+
+    @GetMapping("/form/{id}")
+    public String formPage(@PathVariable("id") Long id,
+                           Model model){
+        model.addAttribute("form",new Form());
+        model.addAttribute("client",clientService.findById(id));
+        model.addAttribute("creditType",creditTypeRepository.findAll());
+        return "client/form";
+    }
+
+    @PostMapping("/form/{id}")
+    public String savingForm(@PathVariable("id") Long id,
+                             @ModelAttribute("form") Form form){
+        formService.saveForm(form,clientService.findById(id));
+        return "redirect:/client/formsMenu/"+id;
     }
 
 

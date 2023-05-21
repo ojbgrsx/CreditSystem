@@ -1,10 +1,12 @@
 package com.example.creditsystem.entity;
 
 
+import com.example.creditsystem.enums.Status;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -21,56 +23,56 @@ public class Form {
     Long id;
 
     @JoinColumn(name = "client_id", nullable = false)
-    @OneToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Client client;
 
-    @Column(name = "initial_date", nullable = false,columnDefinition = "date default current_date")
+    @Column(name = "initial_date", columnDefinition = "date default current_date")
     @Temporal(TemporalType.DATE)
-    Date initialDate;
+    LocalDate initialDate;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "birth_date",nullable = false)
-    Date birthDate;
+    @Column(name = "birth_date", nullable = false, columnDefinition = "DATE")
+    LocalDate birthDate;
 
-    @Column(name = "passport_number",length = 9,nullable = false)
+    @Column(name = "passport_number", length = 9, nullable = false)
     String passportNumber;
 
-    @Column(name = "citizenship",nullable = false)
+    @Column(name = "citizenship", nullable = false)
     String citizenship;
 
-    @Column(name = "phone_number",length = 12)
+    @Column(name = "phone_number", length = 16)
     String phoneNumber;
 
-    @Column(name = "family_status",length = 15)
+    @Column(name = "family_status", length = 125)
     String familyStatus;
 
-    @Column(name = "work_place",length = 25)
+    @Column(name = "work_place", length = 25)
     String workPlace;
 
-    @Column(name = "monthly_salary",nullable = false)
+    @Column(name = "monthly_salary", nullable = false)
     int monthlySalary;
 
-    @JoinColumn(name = "credit_type_id",nullable = false)
-    @OneToOne
+    @JoinColumn(name = "credit_type_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
     CreditType creditType;
 
-    @Column(name = "receive_cash",nullable = false)
+    @Column(name = "receive_cash", nullable = false)
     int receiveCash;
 
-    @Column(name = "requested_period",nullable = false)
-    @Temporal(TemporalType.DATE)
-    Date requestedPeriod;
+    @Column(name = "requested_period", nullable = false)
+    int requestedPeriod;
 
-    @Column(name = "personal_property",columnDefinition = "varchar(100) default 'noting'")
+    @Column(name = "personal_property", columnDefinition = "varchar(100) default 'noting'")
     String personalProperty;
 
-    @Column(name = "current_loans",nullable = false)
+    @Column(name = "current_loans", nullable = false)
     int currentLoans;
 
-    @Column(name = "form_state",length = 15,nullable = false)
-    String formState;
+    @Column(name = "form_state", nullable = false)
+    @Enumerated(EnumType.STRING)
+    Status formState;
 
-    @JoinColumn(name = "worker_id",referencedColumnName = "id")
+    @JoinColumn(name = "worker_id", referencedColumnName = "id")
     @ManyToOne
     Worker worker;
 

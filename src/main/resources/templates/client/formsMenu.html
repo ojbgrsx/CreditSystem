@@ -22,7 +22,7 @@
 <body>
 <header class="header">
     <nav class="nav">
-        <a href="../main/index.html"><img
+        <a th:href="@{/client/cabinet}"><img
                 src="/../static/img/logo.png"
                 th:src="@{/img/logo.png}"
                 alt="Bankist logo"
@@ -30,23 +30,25 @@
                 id="logo"
         /></a>
         <ul class="nav__links">
-            <li class="nav__item">
-                <a class="nav__link" href="../main/terms.html">Terms of Use</a>
-            </li>
-            <li class="nav__item">
-                <a class="nav__link" href="../main/contacts.html">Contacts</a>
-            <li class="nav__item">
-                <a class="nav__link nav__link--btn " href="../main/index.html"
-                >Home</a>
+            <li class="nav__item" style="margin: 0">
+                <address class="testimonial__author">
+                    <a th:href="@{/client/profile/{id}(id=${client.getId()})}"><img
+                            th:src="@{/img/godfather.jpg}" alt="" class="testimonial__photo"/></a>
+                </address>
             </li>
         </ul>
     </nav>
+
+    <h4 th:if="${param.notExist}">
+        You don't have filled out forms !
+    </h4>
+
     <div class="header__title">
         <h1>
-            <span class="highlight"><a th:href="@{/client/fillOutForm}">Fill Out the Form</a></span>
+            <span class="highlight"><a th:href="@{/client/form/{id}(id=${client.getId()})}">Fill Out the Form</a></span>
         </h1>
         <h1>
-            <span class="highlight header__img"><a th:href="@{/client/formsList}">See Forms List</a></span>
+            <span class="highlight header__img"><a th:href="@{/client/formsList/{id}(id=${client.getId()})}">See Forms List</a></span>
         </h1>
     </div>
 </header>

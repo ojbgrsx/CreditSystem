@@ -30,7 +30,7 @@ public class ClientService {
         users.setRole(Role.ROLE_CLIENT);
         client.setAddress(address);
         client.setUsers(users);
-        client.setCash(120000);
+        client.setCash(0);
         clientRepository.save(client);
     }
 
@@ -44,8 +44,16 @@ public class ClientService {
         clientRepository.delete(client);
     }
 
+    @Transactional
     public Client findById(Long id){
         Optional<Client> client = clientRepository.findById(id);
+        return client.orElseGet(Client::new);
+    }
+
+
+    @Transactional
+    public Client findByUsersId(Long id){
+        Optional<Client> client = clientRepository.findByUsersId(id);
         return client.orElseGet(Client::new);
     }
 
