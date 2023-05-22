@@ -3,5 +3,8 @@ package com.example.creditsystem.enums;
 public enum Status {
     PENDING,
     ACCEPTED,
-    DECLINED
+    DECLINED,
+    IN_PROGRESS,
+
+    FINISHED
 }

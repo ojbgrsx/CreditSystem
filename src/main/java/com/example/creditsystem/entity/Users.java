@@ -21,7 +21,7 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Size(min = 8,max = 16,message = "Username length should be at 8-16 characters")
+    @Size(min = 5,max = 16,message = "Username length should be at 8-16 characters")
     @Column(name = "username",unique = true,nullable = false)
     String username;
 

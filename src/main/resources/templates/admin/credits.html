@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Credits</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <style>
+        li {
+            margin-left: 8px;
+        }
+
+        th,td{
+            white-space: nowrap;
+        }
+        .active {
+            background-color: #4CAF50;
+            border-radius: 0.25rem;
+        }
+        .my-sm-1{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">My Page</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/admin}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/admin/forms}">Filled Forms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/admin/workers}">Workers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/admin/clients}">Clients</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/admin/credits}">Credits</a>
+                </li>
+                <li class="nav-item">
+                    <form th:action="@{/logout}" th:method="POST">
+                        <button type="submit" class="btn btn-outline-light my-2 my-sm-1">Log Out</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h1>Clients</h1>
+    <div class="table-responsive">
+        <table class="table table-striped content-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Credit amount</th>
+                <th>Payment time</th>
+                <th>Taken time</th>
+                <th>Left months</th>
+                <th>Monthly payment</th>
+                <th>Credit type</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="credit : ${creditsList}">
+                <td class="first" th:text="${credit.getId()}"/>
+                <td th:text="${credit.getClient().getFirstName()}"/>
+                <td th:text="${credit.getClient().getLastName()}"/>
+                <td th:text="${credit.getCreditAmount()}"/>
+                <td th:text="${credit.getCreditPaymentTime()}"/>
+                <td th:text="${credit.getCreditTakenTime()}"/>
+                <td th:text="${credit.getLeftMonths()}"/>
+                <td th:text="${credit.getMonthlyPayment()}"/>
+                <td th:text="${credit.getCreditType().getName()+' ('+credit.getCreditType().getInterestRate()+'% per year)'}"/>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

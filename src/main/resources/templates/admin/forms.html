@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Filled Forms</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <style>
+
+        li {
+            margin-left: 8px;
+        }
+
+        th, td {
+            white-space: nowrap;
+        }
+
+        .active {
+            background-color: #4CAF50;
+            border-radius: 0.25rem;
+        }
+
+        .my-sm-1 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">My Page</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/admin}">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/admin/forms}">Filled Forms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/admin/workers}">Workers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/admin/clients}">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/admin/credits}">Credits</a>
+                </li>
+                <li class="nav-item">
+                    <form th:action="@{/logout}" th:method="POST">
+                        <button type="submit" class="btn btn-outline-light my-2 my-sm-1">Log Out</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h1>Filled Forms</h1>
+    <div class="table-responsive">
+        <table class="table table-striped content-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Birth date</th>
+                <th>Citizenship</th>
+                <th>Loans</th>
+                <th>Family status</th>
+                <th>State</th>
+                <th>Fill out date</th>
+                <th>Salary</th>
+                <th>Passport</th>
+                <th>Personal property</th>
+                <th>Phone number</th>
+                <th>Receive cash</th>
+                <th>Requested period</th>
+                <th>Work place</th>
+                <th>Credit type</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="form : ${formsList}">
+                <td class="first" th:text="${form.getId()}"/>
+                <td th:text="${form.getBirthDate()}"/>
+                <td th:text="${form.getCitizenship()}"/>
+                <td th:text="${form.getCurrentLoans()}"/>
+                <td th:text="${form.getFamilyStatus()}"/>
+                <td th:text="${form.getFormState()}"/>
+                <td th:text="${form.getInitialDate()}"/>
+                <td th:text="${form.getMonthlySalary()}"/>
+                <td th:text="${form.getPassportNumber()}"/>
+                <td th:text="${form.getPersonalProperty()}"/>
+                <td th:text="${form.getPhoneNumber()}"/>
+                <td th:text="${form.getReceiveCash()}"/>
+                <td th:text="${form.getRequestedPeriod()}"/>
+                <td th:text="${form.getWorkPlace()}"/>
+                <td th:text="${form.getCreditType().getName()+' ('+form.getCreditType().getInterestRate()+'% per year)'}"/>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

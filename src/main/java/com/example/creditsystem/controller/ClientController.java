@@ -1,11 +1,9 @@
 package com.example.creditsystem.controller;
 
 import com.example.creditsystem.entity.*;
+import com.example.creditsystem.enums.Status;
 import com.example.creditsystem.repository.CreditTypeRepository;
-import com.example.creditsystem.service.AddressService;
-import com.example.creditsystem.service.ClientService;
-import com.example.creditsystem.service.FormService;
-import com.example.creditsystem.service.UsersService;
+import com.example.creditsystem.service.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -26,15 +24,15 @@ public class ClientController {
 
     private final AddressService addressService;
 
-    private final CreditTypeRepository creditTypeRepository;
+    private final CreditTypeService creditTypeService;
 
     @Autowired
-    public ClientController(ClientService clientService, UsersService usersService1, FormService formService, AddressService addressService, CreditTypeRepository creditTypeRepository) {
+    public ClientController(ClientService clientService, UsersService usersService1, FormService formService, AddressService addressService, CreditTypeService creditTypeService) {
         this.clientService = clientService;
         this.usersService = usersService1;
         this.formService = formService;
         this.addressService = addressService;
-        this.creditTypeRepository = creditTypeRepository;
+        this.creditTypeService = creditTypeService;
     }
 
 
@@ -69,12 +67,9 @@ public class ClientController {
 
         Users existing = usersService.findByUsername(users.getUsername());
 
-        System.out.println();
-
         if (existing != null) {
             usersBindingResult.rejectValue("username", null, "There is already an account registered with the same username");
         }
-
         if (usersBindingResult.hasErrors() || addressBindingResult.hasErrors() || clientBindingResult.hasErrors()) {
             model.addAttribute("client", client);
             model.addAttribute("users", users);
@@ -91,7 +86,6 @@ public class ClientController {
     public String profilePage(Model model, @PathVariable("id") Long id) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         Users user = usersService.findByUsername(username);
-        model.addAttribute("user", user);
         model.addAttribute("client", clientService.findById(id));
         model.addAttribute("address", clientService.findById(id).getAddress());
         return "client/changeProfile";
@@ -140,13 +134,14 @@ public class ClientController {
                            Model model){
         model.addAttribute("form",new Form());
         model.addAttribute("client",clientService.findById(id));
-        model.addAttribute("creditType",creditTypeRepository.findAll());
+        model.addAttribute("creditType",creditTypeService.findAll());
         return "client/form";
     }
 
     @PostMapping("/form/{id}")
     public String savingForm(@PathVariable("id") Long id,
                              @ModelAttribute("form") Form form){
+        form.setFormState(Status.PENDING);
         formService.saveForm(form,clientService.findById(id));
         return "redirect:/client/formsMenu/"+id;
     }

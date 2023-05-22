@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        li {
+            margin-left: 8px;
+        }
+
+        .active {
+            background-color: #673AB7;
+            border-radius: 0.25rem;
+        }
+        .my-sm-1{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">My Page</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/worker/cabinet}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/worker/forms}">Filled Forms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/worker/clients}">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/worker/credits}">Credits</a>
+                </li>
+                <li class="nav_item active">
+                    <a th:href="@{/worker/profile/{id}(id=${worker.getId()})}" class="btn btn-outline-light my-2 my-sm-1">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <form th:action="@{/logout}" th:method="POST">
+                        <button type="submit" class="btn btn-outline-light my-2 my-sm-1">Log Out</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container mt-4">
+    <h1>Change Profile</h1>
+    <form th:action="@{/worker/profile/{id}(id=${worker.getId()})}" th:method="POST" role="form">
+        <div class="form-group" th:object="${worker}">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" th:field="*{firstName}" id="name" placeholder="Enter name">
+            <label for="surname">Surname:</label>
+            <input type="text" class="form-control" th:field="*{lastName}" id="surname" placeholder="Enter surname">
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+
+</body>
+</html>

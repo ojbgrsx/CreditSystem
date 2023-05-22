@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        li {
+            margin-left: 8px;
+        }
+
+        th, td {
+            white-space: nowrap;
+        }
+
+        .btn-accept {
+            background-color: #28a745;
+            color: #fff;
+            border-color: #28a745;
+        }
+
+        .btn-decline {
+            background-color: #dc3545;
+            color: #fff;
+            border-color: #dc3545;
+        }
+
+        .underline {
+            text-decoration: none !important;
+            color: inherit !important;
+        }
+
+        .lead, .text-muted {
+            font-weight: bold;
+        }
+
+
+        .active {
+            background-color: #673AB7;
+            border-radius: 0.25rem;
+        }
+
+        .my-sm-1 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">My Page</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/worker/cabinet}">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/worker/forms}">Filled Forms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/worker/clients}">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/worker/credits}">Credits</a>
+                </li>
+                <li class="nav-item">
+                    <form th:action="@{/logout}" th:method="POST">
+                        <button type="submit" class="btn btn-outline-light my-2 my-sm-1">Log Out</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h1 class="mt-4">Form Details</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <dl class="mt-4">
+                <dt class="lead">ID</dt>
+                <dd class="text-muted" th:text="${form.getId()}"></dd>
+
+                <dt class="lead">Birth date</dt>
+                <dd class="text-muted" th:text="${form.getBirthDate()}"></dd>
+
+                <dt class="lead">Citizenship</dt>
+                <dd class="text-muted" th:text="${form.getCitizenship()}"/>
+
+                <dt class="lead">Loans</dt>
+                <dd class="text-muted" th:text="${form.getCurrentLoans()}"/>
+
+                <dt class="lead">Family status</dt>
+                <dd class="text-muted" th:text="${form.getFamilyStatus()}"/>
+
+                <dt class="lead">State</dt>
+                <dd class="text-muted" th:text="${form.getFormState()}"/>
+
+                <dt class="lead">Fill out date</dt>
+                <dd class="text-muted" th:text="${form.getInitialDate()}"/>
+
+                <dt class="lead">Salary</dt>
+                <dd class="text-muted" th:text="${form.getMonthlySalary()}"/>
+            </dl>
+        </div>
+        <div class="col-md-6">
+            <dl class="mt-4">
+                <dt class="lead">Passport</dt>
+                <dd class="text-muted" th:text="${form.getPassportNumber()}"/>
+
+                <dt class="lead">Personal property</dt>
+                <dd class="text-muted" th:text="${form.getPersonalProperty()}"/>
+
+                <dt class="lead">Phone number</dt>
+                <dd class="text-muted" th:text="${form.getPhoneNumber()}"/>
+
+                <dt class="lead">Receive cash</dt>
+                <dd class="text-muted" th:text="${form.getReceiveCash()}"/>
+
+                <dt class="lead">Requested period</dt>
+                <dd class="text-muted" th:text="${form.getRequestedPeriod()}"/>
+
+                <dt class="lead">Work place</dt>
+                <dd class="text-muted" th:text="${form.getWorkPlace()}"/>
+
+                <dt class="lead">Credit type</dt>
+                <dd class="text-muted"
+                    th:text="${form.getCreditType().getName()+' ('+form.getCreditType().getInterestRate()+'% per year)'}"/>
+                <div class="mt-4">
+                    <form th:action="@{/worker/formSaving/{bool}(bool = 1)}" th:method="POST" th:object="${form}">
+                        <input type="hidden" th:field="*{id}"/>
+                        <button class="btn btn-success mr-2">Accept</button>
+                    </form>
+                    <form th:action="@{/worker/formSaving/{bool}(bool = 0)}" th:method="POST" th:object="${form}">
+                        <input type="hidden" th:field="*{id}"/>
+                        <button th:object="${form}" class="btn btn-danger">Decline</button>
+                    </form>
+                </div>
+            </dl>
+        </div>
+    </div>
+</div>
+
+<!-- Ваши пользовательские скрипты -->
+</body>
+</html>

@@ -43,4 +43,8 @@ public record UsersDetails(Users users) implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public Long getId(){
+        return users.getId();
+    }
 }

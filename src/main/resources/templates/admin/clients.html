@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Clients</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <style>
+
+        li {
+            margin-left: 8px;
+        }
+
+        th,td{
+            white-space: nowrap;
+        }
+        .active {
+            background-color: #4CAF50;
+            border-radius: 0.25rem;
+        }
+        .my-sm-1{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">My Page</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/admin}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/admin/forms}">Filled Forms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/admin/workers}">Workers</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/admin/clients}">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn my-2 my-sm-1" th:href="@{/admin/credits}">Credits</a>
+                </li>
+                <li class="nav-item">
+                    <form th:action="@{/logout}" th:method="POST">
+                        <button type="submit" class="btn btn-outline-light my-2 my-sm-1">Log Out</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h1>Clients</h1>
+    <div class="table-responsive">
+        <table class="table table-striped content-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Username</th>
+                <th>Address</th>
+                <th>Cash</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="client : ${clientsList}">
+                <td class="first" th:text="${client.getId()}"/>
+                <td th:text="${client.getFirstName()}"/>
+                <td th:text="${client.getLastName()}"/>
+                <td th:text="${client.getUsers().getUsername()}"/>
+                <td th:text="${client.getAddress().getCity()+' city, '+client.getAddress().getStreet()+' '+client.getAddress().houseNumber+' st.'}"/>
+                <td th:text="${client.getCash()}"/>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

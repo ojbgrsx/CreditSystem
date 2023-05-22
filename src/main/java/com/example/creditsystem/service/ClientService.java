@@ -57,6 +57,7 @@ public class ClientService {
         return client.orElseGet(Client::new);
     }
 
+    @Transactional
     public List<Client> findAll() {
         return clientRepository.findAll();
     }

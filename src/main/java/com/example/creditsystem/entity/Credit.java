@@ -1,9 +1,11 @@
 package com.example.creditsystem.entity;
 
+import com.example.creditsystem.enums.Status;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -28,18 +30,19 @@ public class Credit {
     CreditType creditType;
 
     @Column(name = "credit_state",nullable = false)
-    String creditState;
+    @Enumerated(EnumType.STRING)
+    Status creditState;
 
     @Column(name = "credit_amount",nullable = false)
     int creditAmount;
 
-    @Column(name = "credit_taken_time",nullable = false,columnDefinition = "timestamp default current_date")
-    @Temporal(TemporalType.TIMESTAMP)
-    Date creditTakenTime;
+    @Column(name = "credit_taken_time",nullable = false,columnDefinition = "date default current_date")
+    @Temporal(TemporalType.DATE)
+    LocalDate creditTakenTime;
 
     @Column(name = "credit_payment_time")
     @Temporal(TemporalType.DATE)
-    Date creditPaymentTime;
+    LocalDate creditPaymentTime;
 
     @Column(name = "monthly_payment",nullable = false)
     int monthlyPayment;

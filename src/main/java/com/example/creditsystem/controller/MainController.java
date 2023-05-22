@@ -46,7 +46,7 @@ public class MainController {
         } else if (list.get(0).equals(new SimpleGrantedAuthority(Role.ROLE_CLIENT.name()))) {
             return "redirect:/client/cabinet";
         } else if (list.get(0).equals(new SimpleGrantedAuthority(Role.ROLE_WORKER.name()))) {
-            return "redirect:/worker/index";
+            return "redirect:/worker/cabinet";
         } else {
             return "redirect:/main/index";
         }

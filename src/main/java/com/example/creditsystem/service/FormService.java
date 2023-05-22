@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -34,10 +35,20 @@ public class FormService {
     @Transactional
     public void saveForm(Form form, Client client){
 //        form.setBirthDate(Date.valueOf(form.getBirthDate()));
-        form.setFormState(Status.PENDING);
+
         form.setInitialDate(LocalDate.now());
         form.setClient(client);
         formRepository.save(form);
     }
 
+    @Transactional
+    public List<Form> findAll() {
+        return formRepository.findAll();
+    }
+
+
+    @Transactional
+    public Form findById(Long id){
+        return formRepository.findById(id).orElse(null);
+    }
 }
