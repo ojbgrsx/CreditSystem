@@ -1,15 +1,12 @@
 package com.example.creditsystem.service;
 
 import com.example.creditsystem.entity.Client;
-import com.example.creditsystem.entity.CreditType;
 import com.example.creditsystem.entity.Form;
-import com.example.creditsystem.enums.Status;
 import com.example.creditsystem.repository.FormRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;

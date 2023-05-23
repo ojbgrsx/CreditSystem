@@ -1,8 +1,10 @@
 package com.example.creditsystem.controller;
 
-import com.example.creditsystem.entity.*;
+import com.example.creditsystem.entity.Address;
+import com.example.creditsystem.entity.Client;
+import com.example.creditsystem.entity.Form;
+import com.example.creditsystem.entity.Users;
 import com.example.creditsystem.enums.Status;
-import com.example.creditsystem.repository.CreditTypeRepository;
 import com.example.creditsystem.service.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -144,6 +146,18 @@ public class ClientController {
         form.setFormState(Status.PENDING);
         formService.saveForm(form,clientService.findById(id));
         return "redirect:/client/formsMenu/"+id;
+    }
+
+    @GetMapping("/creditsList/{id}")
+    public String creditsList(@PathVariable("id") Long id,Model model){
+        Client client = clientService.findById(id);
+        if (!client.getCreditList().isEmpty()){
+            model.addAttribute("client",client);
+            model.addAttribute("creditList",client.getCreditList());
+            return "client/creditsList";
+        }
+        return "redirect:/client/cabinet?emptyCredit";
+
     }
 
 

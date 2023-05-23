@@ -43,4 +43,7 @@ public class Client {
     @OneToMany(mappedBy = "client")
     List<Form> formList;
 
+    @OneToMany(mappedBy = "client")
+    List<Credit> creditList;
+
 }

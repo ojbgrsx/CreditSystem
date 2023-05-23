@@ -39,8 +39,8 @@
                 <li class="nav-item">
                     <a class="nav-link btn my-2 my-sm-1" th:href="@{/worker/credits}">Credits</a>
                 </li>
-                <li class="nav_item active">
-                    <a th:href="@{/worker/profile/{id}(id=${worker.getId()})}" class="btn btn-outline-light my-2 my-sm-1">Profile</a>
+                <li class="nav_item">
+                    <a style="background-color: #673AB7; color: white" th:href="@{/worker/profile/{id}(id=${worker.getId()})}" class="btn btn-outline-light my-2 my-sm-1">Profile</a>
                 </li>
                 <li class="nav-item">
                     <form th:action="@{/logout}" th:method="POST">

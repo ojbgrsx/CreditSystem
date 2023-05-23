@@ -4,59 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4833473f-2ff4-4f92-b9fb-0760da604bb9" name="Changes" comment="Client part finished">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/CreditService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/CreditTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/adminRegister.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/clients.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/credits.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/forms.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/workerRegister.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/workers.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/worker/clients.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/worker/credits.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/worker/forms.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/worker/profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/worker/viewForm.html" afterDir="false" />
+    <list default="true" id="4833473f-2ff4-4f92-b9fb-0760da604bb9" name="Changes" comment="Worker part">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/client/creditsList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/103b313c-ad98-4439-94e6-4764def74b98.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/103b313c-ad98-4439-94e6-4764def74b98.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/103b313c-ad98-4439-94e6-4764def74b98/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/103b313c-ad98-4439-94e6-4764def74b98/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/WorkerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/WorkerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/entity/Credit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/entity/Credit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/entity/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/enums/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/enums/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/repository/WorkerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/repository/WorkerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/security/UsersDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/security/UsersDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/ClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/entity/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/entity/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/repository/CreditRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/repository/CreditRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/CreditService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/CreditService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/FormService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/FormService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/UsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/WorkerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/WorkerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/worker/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/worker/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/cabinet.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/cabinet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/formsList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/formsList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/formsMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/formsMenu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/worker/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/worker/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/ClientController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/WorkerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/WorkerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Client$ClientBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Client$ClientBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Credit$CreditBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Credit$CreditBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Credit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Credit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Users.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/repository/WorkerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/repository/WorkerRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/security/UsersDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/security/UsersDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/service/ClientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/service/ClientService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/service/FormService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/service/FormService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/service/UsersService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/service/UsersService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/service/WorkerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/service/WorkerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/worker/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/worker/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +96,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.editor.code.editing",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
     "spring.configuration.checksum": "8be6edf9839188a21ef8834e7cca6a44",
     "vue.rearranger.settings.migration": "true"
   },
@@ -190,7 +153,9 @@
       <workItem from="1684348437475" duration="32769000" />
       <workItem from="1684432512166" duration="7027000" />
       <workItem from="1684503280947" duration="18825000" />
-      <workItem from="1684526353239" duration="111769000" />
+      <workItem from="1684526353239" duration="111888000" />
+      <workItem from="1684743285186" duration="1826000" />
+      <workItem from="1684853829734" duration="5336000" />
     </task>
     <task id="LOCAL-00001" summary="Sign in + Validation(Client,Address,Users classes) + AuthenticationSuccessHandler + UserService">
       <created>1684519603985</created>
@@ -234,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684684099034</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Worker part">
+      <created>1684735340903</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684735340903</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +231,11 @@
     <MESSAGE value="Cabinet + Profile changing + Server error" />
     <MESSAGE value="Server error + Some style changes" />
     <MESSAGE value="Client part finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="Client part finished" />
+    <MESSAGE value="Worker part" />
+    <option name="LAST_COMMIT_MESSAGE" value="Worker part" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

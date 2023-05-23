@@ -50,9 +50,11 @@
             font-weight: bold;
             color: #009879;
         }
+
         .first {
             color: #009879;
         }
+
     </style>
 </head>
 <body>
@@ -66,10 +68,6 @@
                     id="logo">
         </a>
         <ul class="nav__links">
-            <li class="nav__item">
-                <a class="nav__link" style="margin: 0" th:href="@{/client/creditsList/{id}(id=${client.getId()})}">Credit
-                    Menu</a>
-            </li>
             <li class="nav__item">
                 <a class="nav__link" style="margin: 0" th:href="@{/client/formsMenu/{id}(id=${client.getId()})}">Form
                     Menu</a>
@@ -93,39 +91,25 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Birth date</th>
-            <th>Citizenship</th>
-            <th>Loans</th>
-            <th>Family status</th>
+            <th>Amount</th>
+            <th>Payment date</th>
             <th>State</th>
-            <th>Fill out date</th>
-            <th>Salary</th>
-            <th>Passport</th>
-            <th>Personal property</th>
-            <th>Phone number</th>
-            <th>Receive cash</th>
-            <th>Requested period</th>
-            <th>Work place</th>
+            <th>Left months</th>
+            <th>Monthly payment</th>
+            <th>Taken date</th>
             <th>Credit type</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each=" form : ${formsList}">
-            <td class="first" th:text="${form.getId()}"/>
-            <td th:text="${form.getBirthDate()}"/>
-            <td th:text="${form.getCitizenship()}"/>
-            <td th:text="${form.getCurrentLoans()}"/>
-            <td th:text="${form.getFamilyStatus()}"/>
-            <td th:text="${form.getFormState()}"/>
-            <td th:text="${form.getInitialDate()}"/>
-            <td th:text="${form.getMonthlySalary()}"/>
-            <td th:text="${form.getPassportNumber()}"/>
-            <td th:text="${form.getPersonalProperty()}"/>
-            <td th:text="${form.getPhoneNumber()}"/>
-            <td th:text="${form.getReceiveCash()}"/>
-            <td th:text="${form.getRequestedPeriod()}"/>
-            <td th:text="${form.getWorkPlace()}"/>
-            <td th:text="${form.getCreditType().getName()+' ('+form.getCreditType().getInterestRate()+'% per year)'}"/>
+        <tr th:each=" credit : ${creditList}">
+            <td class="first" th:text="${credit.getId()}"/>
+            <td th:text="${credit.getCreditAmount()}"/>
+            <td th:text="${credit.getCreditPaymentTime()}"/>
+            <td th:text="${credit.getCreditState()}"/>
+            <td th:text="${credit.getLeftMonths()}"/>
+            <td th:text="${credit.getMonthlyPayment()}"/>
+            <td th:text="${credit.getCreditTakenTime()}"/>
+            <td th:text="${credit.getCreditType().getName()+' ('+credit.getCreditType().getInterestRate()+'% per year)'}"/>
         </tr>
         </tbody>
     </table>
