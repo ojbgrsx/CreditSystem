@@ -30,6 +30,10 @@
                 id="logo"
         /></a>
         <ul class="nav__links">
+            <li class="nav__item">
+                <a class="nav__link" style="margin: 0" th:href="@{/client/creditsList/{id}(id=${client.getId()})}">Credit
+                    Menu</a>
+            </li>
             <li class="nav__item" style="margin: 0">
                 <address class="testimonial__author">
                     <a th:href="@{/client/profile/{id}(id=${client.getId()})}"><img

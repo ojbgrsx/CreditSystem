@@ -42,7 +42,7 @@ public class SecurityConfig {
                         .loginPage("/main/login")
                         .loginProcessingUrl("/login")
                         .successHandler(authenticationSuccessHandler())
-                        .failureUrl("/main?error"))
+                        .failureUrl("/main/login?error"))
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/main?logout")

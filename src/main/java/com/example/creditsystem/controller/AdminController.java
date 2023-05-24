@@ -22,21 +22,16 @@ public class AdminController {
 
     private final FormService formService;
 
-    private final AddressService addressService;
-
-    private final CreditTypeService creditTypeService;
 
     private final WorkerService workerService;
 
     private final CreditService creditService;
 
 
-    public AdminController(ClientService clientService, UsersService usersService, FormService formService, AddressService addressService, CreditTypeService creditTypeService, WorkerService workerService, CreditService creditService) {
+    public AdminController(ClientService clientService, UsersService usersService, FormService formService, WorkerService workerService, CreditService creditService) {
         this.clientService = clientService;
         this.usersService = usersService;
         this.formService = formService;
-        this.addressService = addressService;
-        this.creditTypeService = creditTypeService;
         this.workerService = workerService;
         this.creditService = creditService;
     }

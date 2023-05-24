@@ -4,22 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4833473f-2ff4-4f92-b9fb-0760da604bb9" name="Changes" comment="Worker part">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/client/creditsList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/103b313c-ad98-4439-94e6-4764def74b98.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/103b313c-ad98-4439-94e6-4764def74b98.xml" afterDir="false" />
+    <list default="true" id="4833473f-2ff4-4f92-b9fb-0760da604bb9" name="Changes" comment="Finished except(Credit payment function)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/entity/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/entity/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/repository/CreditRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/repository/CreditRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/CreditService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/CreditService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/FormService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/service/FormService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/cabinet.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/cabinet.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/formsList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/formsList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/client/formsMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/client/formsMenu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/worker/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/worker/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/controller/ClientController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/service/FormService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/service/FormService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/creditsystem/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Client$ClientBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Client$ClientBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/entity/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/creditsystem/repository/CreditRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/creditsystem/repository/CreditRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/client/cabinet.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/client/cabinet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/client/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/client/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/client/formsList.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/client/formsList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/client/formsMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/client/formsMenu.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +150,7 @@
       <workItem from="1684503280947" duration="18825000" />
       <workItem from="1684526353239" duration="111888000" />
       <workItem from="1684743285186" duration="1826000" />
-      <workItem from="1684853829734" duration="5336000" />
+      <workItem from="1684853829734" duration="6176000" />
     </task>
     <task id="LOCAL-00001" summary="Sign in + Validation(Client,Address,Users classes) + AuthenticationSuccessHandler + UserService">
       <created>1684519603985</created>
@@ -206,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684735340903</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Finished except(Credit payment function)">
+      <created>1684862965089</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684862965089</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,7 +234,8 @@
     <MESSAGE value="Server error + Some style changes" />
     <MESSAGE value="Client part finished" />
     <MESSAGE value="Worker part" />
-    <option name="LAST_COMMIT_MESSAGE" value="Worker part" />
+    <MESSAGE value="Finished except(Credit payment function)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished except(Credit payment function)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

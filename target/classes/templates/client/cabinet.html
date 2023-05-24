@@ -31,7 +31,7 @@
             </a>
             <ul class="nav__links">
                 <li class="nav__item">
-                    <a class="nav__link" style="margin: 0" th:href="@{/client/creditMenu{id}(id=${clientData.getId()})}">Credit Menu</a>
+                    <a class="nav__link" style="margin: 0" th:href="@{/client/creditsList/{id}(id=${clientData.getId()})}">Credit Menu</a>
                 </li>
                 <li class="nav__item">
                     <a class="nav__link" style="margin: 0" th:href="@{/client/formsMenu/{id}(id=${clientData.getId()})}">Form Menu</a>
@@ -50,6 +50,9 @@
 
             </ul>
         </nav>
+        <h4 th:if="${param.emptyCredit}">
+            You don't have credits yet !
+        </h4>
 
         <div style="grid-template-columns: none" class="header__title"><h1>Personal Area</h1></div>
 
